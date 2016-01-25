@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="1.7"
+	client="site"
+	method="upgrade">
+	<name>Display Article Intro</name>
+	<author>Daniel H Pavey</author>
+	<creationDate>January 2016</creationDate>
+	<copyright>East Devon IT</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>dan@eastdevon.it</authorEmail>
+	<authorUrl>www.eastdevonit.co.uk</authorUrl>
+	<version>0.0.1</version>
+	<description>Super Simple Module to pull in the intro text of an article. By default it pulls in the current articles intro text. If the page is a blog it will pull in the intro text of the latest article. Alternatively you can set a specific article.</description>
+	<files>
+		<filename module="mod_display_article_intro">mod_display_article_intro.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_display_article_intro.xml</filename>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_content/models/fields">
+								
+					<field
+					name="length"
+					type="text"
+					default="0"
+					size="4"
+					label="Length"
+					description="Limit number of characters displays (0 means no limit)" >
+					</field>
+
+                    <field
+                    name="title"
+                    type="radio"
+                    default="0"
+                    label="Show Title"
+                    description="Display Article Title?"
+                    class="btn-group btn-group-yesno"
+                    >
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                    </field>
+
+                    <field
+                    name="singlearticle"
+                    type="radio"
+                    default="0"
+                    label="Show Specific Article"
+                    description="Show Specific Article Intro Text? (If yes please set article id below"
+                    class="btn-group btn-group-yesno"
+                    >
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                    </field>
+        
+                    <field 
+                    name="article_id" 
+                    type="modal_article" 
+                    default="" 
+                    label="Select an article" 
+                    description="" />
+
+			</fieldset>
+					
+			<fieldset name="Options">
+					<field
+					name="modclasssuffix"
+					type="text"
+					default=""
+					size="10"
+					label="Module Class Suffix"
+					description="Module Class Suffix" >
+					</field>
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>
